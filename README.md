@@ -7,40 +7,22 @@ https://drive.google.com/file/d/1IQ6mPZU-3z0kYYWU7gH0P7Be_qwljsF1/view?usp=drive
        In this project we have raw accelerometer data (x, y, z) axes and timestamp. And our objective is to cluster the data with respect to behavior of cattle and to predict the rumination for encountering early disease using machine learning models. 
       By processing data from the (x, y, z) axes along with timestamp, we aim to decipher patterns, behaviours, and activities exhibited by the animals under study. Machine learning techniques to accelerometer data enables us to shed light on the behavioural patterns and activities exhibited by the animals. Machine learning algorithms can process vast amount of data to derive behavioural metrics, such as activity levels, rest periods, and specific behaviours. By analysing changes in accelerometer data over time, we can identify unusual behaviours or deviations from normal activity, which may indicate stress, illness, or other significant events. By early analysing such effects on cattle we can prevent business losses. From business point of it’s very important. 
      We will dive into the methodology, data preprocessing, and machine learning techniques employed to analyse accelerometer data from animals. 
-Sample dataset:
-	timestamp	                   x	 y	 z
-0	2015-06-12 13:30:00.161041	100	620	804
-1	2015-06-12 13:30:00.260490	68	640	800
-2	2015-06-12 13:30:00.359939	48	628	884
-3	2015-06-12 13:30:00.459388	44	616	888
+
 
 # Data Pre-processing-   
      Before going for data pre -processing we have to understand the meaning of each axes. X-axes- indicates the forward and backward movement of cattle (Horizontal or parallel to the ground). Y-axes- indicates the vertical movement of cattle (perpendicular to the ground). Z-axes-indicates the movement across the body of animal (perpendicular to the animal body)
-   Data preprocessing is a crucial step in any machine learning project, especially when dealing with accelerometer data from the X, Y, and Z axes along with timestamps for an animal behaviour project. Preprocessing involves cleaning, transforming, and organizing the data to make it suitable for analysis. 
+    Data preprocessing is a crucial step in any machine learning project, especially when dealing with accelerometer data from the X, Y, and Z axes along with timestamps for an animal behaviour project. Preprocessing involves cleaning, transforming, and organizing the data to make it suitable for analysis. 
     Begin by loading and inspecting the raw accelerometer data to understand its structure and contents. We have (14595853 Rows and 4 Columns). After loading the dataset we will check for missing values. In this data set we don’t have any missing values. 
      Here data is collected continuously over time so creation of time windows is a fundamental preprocessing technique. We can create 3s, 5s, 10s, 20s window but we don’t want to lose a lot of data points so will create 3s time window because we have data available in micro seconds in the timestamp column. A short time window of 3S (30 observations) has been found to be the best fitting to compute a list of metrics to be used in the model. These time windows are non-overlapping. The primary objective of creating these time windows is to facilitate the analysis of data in smaller, more manageable chunks, to extract meaningful insights from complex datasets. We will create 3s time window by taking mean of data points. After creating time window we have (4,83,600 Rows).
-Data frame after creating time window:
-	Timestamp              	x	           y	         z
-0	2015-06-12 13:30:00	136.000000	610.344828	844.689655
-1	2015-06-12 13:30:03	-88.400000	579.066667	843.200000
-2	2015-06-12 13:30:06	-684.400000	412.000000	662.000000
-3	2015-06-12 13:30:09	-795.741935	343.870968	562.838710
-4	2015-06-12 13:30:12	-724.933333	390.800000	621.333333
 
 # EDA-
       EDA helps us to gain insights into our dataset, understanding characteristics. As we saw in the above subpoint we are having 4 columns namely Timestamp, x , y, z axes. And we have created time window of it. Now we will study statistical measures of each axes. After creating the time window we will check statistical measures (mean, variance, standard deviation (Std), etc.) of each axes. 
      After going through we have tried visualizing each axes, mean, std, etc. Here mean gives us the idea about the average data points in the axes. Also, we have calculated minimum, maximum value and median of each axes. From the statistical measures we can conclude that the variance of x axes is the highest which means the spread of the data if maximum in the x axes. And variance of y axes is lowest.         
+    Visualising each axes to get the idea about data spread, pattern, etc
 
-Axes	mean	std	min	50%	max	Variance
-x	47	338	-1028	160	930	114591
-y	896	197	-1009	973	1136	38827
-z	141	331	-997	101	1051	110075
-
-Visualising each axes to get the idea about data spread, pattern, etc
-
-Correlation for x, y, z axes:
-Pearson correlation measures the linear relationship between two continuous variables. It ranges from -1 (perfect negative correlation) to 1 (perfect positive correlation), with 0 indicating no linear correlation.
-Formula: r = Σ ((X - X̄) (Y - Ȳ)) / (n - 1) * (SX * SY), where X and Y are the variables, X̄ and Ȳ are their means, SX and SY are their standard deviations, and n is the number of data points.
+    Correlation for x, y, z axes:
+    Pearson correlation measures the linear relationship between two continuous variables. It ranges from -1 (perfect negative correlation) to 1 (perfect positive correlation), with 0 indicating no linear correlation.
+    Formula: r = Σ ((X - X̄) (Y - Ȳ)) / (n - 1) * (SX * SY), where X and Y are the variables, X̄ and Ȳ are their means, SX and SY are their standard deviations, and n is the number of data points.
 
 
 # Feature Extraction-
