@@ -27,37 +27,21 @@ https://drive.google.com/file/d/1IQ6mPZU-3z0kYYWU7gH0P7Be_qwljsF1/view?usp=drive
 
 # Feature Extraction-
       After creating the 3S time windows we will go for feature extraction. Within each time window, extract       relevant features that capture the characteristics of interest. These features can be used as inputs for various analysis tasks. In this project we have tried multiple features like mean (x, y, z axes), Std (x, y, z axes), RMS, Magnitude. Here mean and Std are statistical features. And RMS, Magnitude are time domain features. The Magnitude and RMS have been estimated for each observation as the root squared of the sum of the squared tri-axis accelerations (x, y, z)
-Formula for Mean:
 
-Mean = ΣX / N
-     
-  Formula for Std:      
-Standard Deviation (σ) = √ [(Σ (xi – μ )²) / N]
-
- Formula for RMS:                 
-RMS= sqrt ((x1^2 + x2^2 + x3^2 + ... + xn^2) / n)
- 
-Formula for Magnitude:
-Magnitude= sqrt (x^2 + y^2 + z^2)
-
-After visualising each feature, we get the clarity that we have to drop mean and Std and we have to continue with RMS and Magnitude. We are able to identify patterns in RMS and Magnitude. We apply selected features on a particular date data and try to visualize In the above graphs we are able to identify patterns of cattle. If we plot the graph for mean and Std we are not able to recognise the pattern. So, we will finalise the two features RMS and Magnitude.
-
-Correlation is the fundamental statistical concept that plays a crucial role in data analysis, research, decision making across various fields. Correlation measures the degree to which two or more variables are related or move together systematically. If the variables are highly corelated (more than 0.8) we can drop that variable. But in the above graph we don’t have such variable. So, we will continue with all.
 
 # PCA & K-Means Clustering-
     We use one of the most commonly used clustering algorithms, k-Means with the usual Euclidean distance and RMS. However, applying clustering as is will result in clusters which will not be characterizable in terms of the chosen features due to the high dimensionality.     
      Principle Component Analysis (PCA) is a technique which is used for dimensionality reduction and data exploration. After a PCA model is created, we have a set of PCs that serve as a mean to reduce the dimensionality of the original variables. Here, we are transforming (x, y, z, RMS, Magnitude) these columns to the two columns namely PC1 and PC2. Our purpose is to make clusters with PC1 and PC2. Objective of applying PCA is to reduce dimensionality so that we can make clusters of the data.
-
-K-Means Clustering Algorithm is unsupervised algorithm used to group the data points in clusters based on similar data points. In this project we have to identify the activities of cattle that is why we are performing k-means. We have to divide data points into 4 clusters. So, the value of ‘k’ is already known. 
-After getting the clusters the important task is to label the clusters and is the difficult task it requires a lot of statistical analysis and opinion from domain expert. In this task we have to identify the clusters for 4 activities namely Rumination, Standing, Other Activities and Eating. To identify the clusters, we will use the domain knowledge like the detail study of the x, y and z axes. While Ruminating cattle will be in steady position there will be less movement across all axes. While performing other activities like running, walking, etc. movement in all axes will be maximum. In such way we can identify the activities of cattle. By visualizing each axes of each cluster and by observing the median value of each axes of each cluster we can conclude.
+     K-Means Clustering Algorithm is unsupervised algorithm used to group the data points in clusters based on similar data points. In this project we have to identify the activities of cattle that is why we are performing k-means. We have to divide data points into 4 clusters. So, the value of ‘k’ is already known. 
+    After getting the clusters the important task is to label the clusters and is the difficult task it requires a lot of statistical analysis and opinion from domain expert. In this task we have to identify the clusters for 4 activities namely Rumination, Standing, Other Activities and Eating. To identify the clusters, we will use the domain knowledge like the detail study of the x, y and z axes. While Ruminating cattle will be in steady position there will be less movement across all axes. While performing other activities like running, walking, etc. movement in all axes will be maximum. In such way we can identify the activities of cattle. By visualizing each axes of each cluster and by observing the median value of each axes of each cluster we can conclude.
 
 
 # Future scope-
-      Future scope of this project is continues going to expand due to advanced technology, increasing awareness about animal welfare, increasing population, increasing demand for dairy products.
-1.	Future projects can explore more sophisticated algorithms, such as deep learning and reinforcement learning, to model complex animal behaviours and interactions. These techniques can improve prediction accuracy and handle larger and more diverse datasets.
-2.	Future projects can combine data from various sources, including GPS tracking, to create a more comprehensive understanding of animal behaviour.
-3.	Predictive analytics can be used to optimize breeding programs by identifying the most suitable time for insemination. Accurate predictions can lead to higher calf production rates and improved genetic diversity.
-4.	As climate change affects weather patterns and temperature fluctuations, predictive models can help cattle farmers adapt by forecasting optimal grazing times, heat stress conditions, and resource allocation strategies.
-5.	Future projects can focus on improving resource efficiency in cattle farming, including optimized use of water, feed, and pasture resources. Predictive models can help reduce waste and enhance sustainability.
-6.	Predictive models can assist cattle farmers in making informed decisions about when to sell their cattle, considering market conditions and pricing trends.
-7.	The future scope includes educating cattle farmers and agricultural professionals in the use of predictive analytics and data-driven decision-making to enhance cattle farming practices.
+    Future scope of this project is continues going to expand due to advanced technology, increasing awareness about animal welfare, increasing population, increasing demand for dairy products.
+    1.	Future projects can explore more sophisticated algorithms, such as deep learning and reinforcement learning, to model complex animal behaviours and interactions. These techniques can improve prediction accuracy and handle larger and more diverse datasets.
+    2.	Future projects can combine data from various sources, including GPS tracking, to create a more comprehensive understanding of animal behaviour.
+    3.	Predictive analytics can be used to optimize breeding programs by identifying the most suitable time for insemination. Accurate predictions can lead to higher calf production rates and improved genetic diversity.
+    4.	As climate change affects weather patterns and temperature fluctuations, predictive models can help cattle farmers adapt by forecasting optimal grazing times, heat stress conditions, and resource allocation strategies.
+    5.	Future projects can focus on improving resource efficiency in cattle farming, including optimized use of water, feed, and pasture resources. Predictive models can help reduce waste and enhance sustainability.
+    6.	Predictive models can assist cattle farmers in making informed decisions about when to sell their cattle, considering market conditions and pricing trends.
+    7.	The future scope includes educating cattle farmers and agricultural professionals in the use of predictive analytics and data-driven decision-making to enhance cattle farming practices.
